@@ -1,5 +1,5 @@
-export interface Onibus {
+export interface Bus {
   id: number;
-  codigo: string;
-  nome: string;
+  cod: string;
+  name: string;
 }

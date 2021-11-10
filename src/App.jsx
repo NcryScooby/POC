@@ -1,7 +1,8 @@
 import React from "react";
+import MapPage from "./app/GoogleMaps/MapPage";
 
 export default () => (
   <div className="App">
-    <h1>Bus POC</h1>
+    <MapPage/>
   </div>
 );
