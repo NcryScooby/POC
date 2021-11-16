@@ -19,9 +19,9 @@ const MapPage = () => {
     <div className="map">
       {isLoaded ? (
         <GoogleMap
-          mapContainerStyle={{ width: "50%", height: "100%" }}
+          mapContainerStyle={{ width: "50%", height: "80%" }}
           center={position}
-          zoom={12}
+          zoom={13}
         >
           <Marker position={position} />
         </GoogleMap>
