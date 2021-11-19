@@ -2,8 +2,6 @@ import React from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import "./MapPage.css";
 
-export interface MapPageProps {}
-
 const MapPage = () => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -19,9 +17,9 @@ const MapPage = () => {
     <div className="map">
       {isLoaded ? (
         <GoogleMap
-          mapContainerStyle={{ width: "50%", height: "80%" }}
+          mapContainerStyle={{ width: "50%", height: "100%" }}
           center={position}
-          zoom={13}
+          zoom={12}
         >
           <Marker position={position} />
         </GoogleMap>
