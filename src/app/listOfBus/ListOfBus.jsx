@@ -65,7 +65,7 @@ function ListOfBus() {
           postsOnibus.length &&
           postsOnibus.map((item, index) => {
             return (
-                <option key={index} value={item.nome}>{item.nome}</option>
+                <option key={index} value={item.nome}>{item.codigo} | {item.nome}</option>
             );
           })}
           </select>
@@ -77,7 +77,7 @@ function ListOfBus() {
           postsLotacao.length &&
           postsLotacao.map((item, index) => {
             return (
-                <option key={index} value={item.nome}>{item.nome}</option>
+                <option key={index} value={item.nome}>{item.codigo} | {item.nome}</option>
             );
           })}
           </select>
