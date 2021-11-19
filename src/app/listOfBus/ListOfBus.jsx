@@ -59,7 +59,7 @@ function ListOfBus() {
           <option>Lotação</option>
         </select>
         <div>
-          {isBus === true ? <> <h2>Ônibus</h2>
+          {isBus === true ? <> <h2 className="title">Ônibus</h2>
           <select name="">
           {postsOnibus &&
           postsOnibus.length &&
@@ -71,7 +71,7 @@ function ListOfBus() {
           </select>
           </> : 
           
-          <> <h2>Lotação</h2>
+          <> <h2 className="title">Lotação</h2>
           <select name="">
           {postsLotacao &&
           postsLotacao.length &&
