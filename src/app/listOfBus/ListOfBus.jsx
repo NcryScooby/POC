@@ -1,9 +1,13 @@
 import "./ListOfBus.css";
-import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import React, {useState, useEffect} from "react";
+
 function ListOfBus() {
-  const [posts, setPosts] = useState([]);
+
+
+  const [postsOnibus, setPostsOnibus] = useState([]);
+  const [postsLotacao, setPostsLotacao] = useState([]);
 
   useEffect(() => {
     axios
@@ -11,9 +15,25 @@ function ListOfBus() {
         "http://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%&t=o"
       )
       .then((response) => {
-        const qualquer = response.data;
+        const onibus = response.data;
 
-        setPosts(qualquer);
+        setPostsOnibus(onibus);
+      })
+      .catch(() => {
+        console.log("Deu tudo Errado!");
+      });
+  }, []);
+
+
+  useEffect(() => {
+    axios
+      .get(
+        "http://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%&t=l" 
+      )
+      .then((response) => {
+        const lotacao = response.data;
+
+        setPostsLotacao(lotacao);
       })
       .catch(() => {
         console.log("Deu tudo Errado!");
@@ -21,20 +41,36 @@ function ListOfBus() {
   }, []);
 
   return (
-    <div className="lis">
+    <div className="custom-select">
       <div>
-        {posts &&
-          posts.length &&
-          posts.map((item, index) => {
-            console.log(typeof item);
+        <div>
+          <h2>Ônibus</h2>
+          <select name="">
+          {postsOnibus &&
+          postsOnibus.length &&
+          postsOnibus.map((item, index) => {
             return (
-              <div key={index}>
-                <ul>
-                  <li>{item.codigo}</li>
-                </ul>
-              </div>
+                <option key={index} value="">{item.nome}</option>
             );
           })}
+          
+          </select>
+        </div>
+      </div>
+      <div>
+        <div>
+        <h2>Lotação</h2>
+          <select name="">
+          {postsLotacao &&
+          postsLotacao.length &&
+          postsLotacao.map((item, index) => {
+            return (
+                <option key={index} value="">{item.nome}</option>
+            );
+          })}
+          
+          </select>
+        </div>
       </div>
     </div>
   );
