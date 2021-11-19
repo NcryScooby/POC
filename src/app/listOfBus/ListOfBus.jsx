@@ -8,6 +8,7 @@ function ListOfBus() {
 
   const [postsOnibus, setPostsOnibus] = useState([]);
   const [postsLotacao, setPostsLotacao] = useState([]);
+  const [isBus, setIsBus] = useState(true);
 
   useEffect(() => {
     axios
@@ -40,11 +41,25 @@ function ListOfBus() {
       });
   }, []);
 
+  function altera() {
+
+    if (isBus === true) {
+      setIsBus(false);
+    } else {
+      setIsBus(true);
+    }
+  }
+
   return (
     <div className="custom-select">
       <div>
+        <h2>Ônibus / Lotação</h2>
+        <select onChange={(e) => altera()}>
+          <option>Ônibus</option>
+          <option>Lotação</option>
+        </select>
         <div>
-          <h2>Ônibus</h2>
+          {isBus === true ? <> <h2>Ônibus</h2>
           <select name="">
           {postsOnibus &&
           postsOnibus.length &&
@@ -53,13 +68,10 @@ function ListOfBus() {
                 <option key={index} value="">{item.nome}</option>
             );
           })}
-          
           </select>
-        </div>
-      </div>
-      <div>
-        <div>
-        <h2>Lotação</h2>
+          </> : 
+          
+          <> <h2>Lotação</h2>
           <select name="">
           {postsLotacao &&
           postsLotacao.length &&
@@ -68,8 +80,8 @@ function ListOfBus() {
                 <option key={index} value="">{item.nome}</option>
             );
           })}
-          
           </select>
+          </>}
         </div>
       </div>
     </div>
