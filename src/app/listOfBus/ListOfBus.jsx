@@ -64,8 +64,6 @@ function ListOfBus() {
           {postsOnibus &&
           postsOnibus.length &&
           postsOnibus.map((item, index) => {
-            {const id = item.id
-            console.log(id)}
             return (
                 <option key={index} value={item.id}>{item.codigo} | {item.nome}</option>
             );
@@ -78,10 +76,8 @@ function ListOfBus() {
           {postsLotacao &&
           postsLotacao.length &&
           postsLotacao.map((item, index) => {
-            {const id = item.id
-            console.log(id)}
             return (
-                <option key={index} value={item.id}>{item.codigo} | {item.nome}</option>
+                <option onClick={} key={index} value={item.id}>{item.codigo} | {item.nome}</option>
             );
           })}
           </select>
