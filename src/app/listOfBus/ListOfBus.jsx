@@ -2,7 +2,7 @@ import "./ListOfBus.css";
 import axios from "axios";
 import { getCoords, getOnibus } from '../../service/tranporte.service'
 
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 
 function ListOfBus() {
 
@@ -67,8 +67,11 @@ function ListOfBus() {
           <> 
           <h2 className="title">Selecione a Rota do Ônibus</h2>
           <select 
-          value={optionsState} 
-          onChange={(e) => setOptionsState(functionGetCoords(e.target.value))}>
+          value={optionsState}
+          onChange={(e) => {
+          setOptionsState((e.target.value))
+          return functionGetCoords(e.target.value);
+          }}>
           {postsOnibus &&
           postsOnibus.length &&
           postsOnibus.map((item, index) => {
@@ -84,7 +87,10 @@ function ListOfBus() {
           <h2 className="title">Selecione a Rota da Lotação</h2>
           <select 
           value={optionsState} 
-          onChange={(e) => setOptionsState(functionGetCoords(e.target.value))}>
+          onChange={(e) => {
+          setOptionsState((e.target.value))
+          return functionGetCoords(e.target.value);
+          }}>
           {postsLotacao &&
           postsLotacao.length &&
           postsLotacao.map((item, index) => {
