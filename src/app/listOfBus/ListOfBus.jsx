@@ -1,5 +1,6 @@
 import "./ListOfBus.css";
 import axios from "axios";
+import { getCoords, getOnibus } from '../../service/tranporte.service'
 
 import React, {useState, useEffect} from "react";
 
@@ -9,13 +10,11 @@ function ListOfBus() {
   const [postsOnibus, setPostsOnibus] = useState([]);
   const [postsLotacao, setPostsLotacao] = useState([]);
   const [optionsState, setOptionsState] = useState({});
+  const [listaCoordsState, setListaCoordsState] = useState([]);
   const [isBus, setIsBus] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(
-        "http://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%&t=o"
-      )
+    getOnibus('o')
       .then((response) => {
         const onibus = response.data;
 
@@ -28,10 +27,7 @@ function ListOfBus() {
 
 
   useEffect(() => {
-    axios
-      .get(
-        "http://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%&t=l" 
-      )
+    getOnibus('l')
       .then((response) => {
         const lotacao = response.data;
 
@@ -41,6 +37,13 @@ function ListOfBus() {
         console.log("Deu tudo Errado!");
       });
   }, []);
+
+  async function functionGetCoords(bus) {
+    const coords = await getCoords(bus);
+    setListaCoordsState([coords.data]);
+    console.log(coords.data);
+    return getCoords(bus);
+  }
 
   function altera() {
 
@@ -65,7 +68,7 @@ function ListOfBus() {
           <h2 className="title">Selecione a Rota do Ônibus</h2>
           <select 
           value={optionsState} 
-          onChange={(e) => setOptionsState(console.log(e.target.value))}>
+          onChange={(e) => setOptionsState(functionGetCoords(e.target.value))}>
           {postsOnibus &&
           postsOnibus.length &&
           postsOnibus.map((item, index) => {
@@ -81,7 +84,7 @@ function ListOfBus() {
           <h2 className="title">Selecione a Rota da Lotação</h2>
           <select 
           value={optionsState} 
-          onChange={(e) => setOptionsState(console.log(e.target.value))}>
+          onChange={(e) => setOptionsState(functionGetCoords(e.target.value))}>
           {postsLotacao &&
           postsLotacao.length &&
           postsLotacao.map((item, index) => {
