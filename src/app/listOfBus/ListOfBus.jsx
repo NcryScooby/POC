@@ -8,6 +8,7 @@ function ListOfBus() {
 
   const [postsOnibus, setPostsOnibus] = useState([]);
   const [postsLotacao, setPostsLotacao] = useState([]);
+  const [optionsState, setOptionsState] = useState({});
   const [isBus, setIsBus] = useState(true);
 
   useEffect(() => {
@@ -60,24 +61,26 @@ function ListOfBus() {
         </select>
         <div>
           {isBus === true ? <> <h2 className="title">Ônibus</h2>
-          <select name="">
+          <select value={optionsState} onChange={(e) => setOptionsState(console.log(e.target.value))}>
           {postsOnibus &&
           postsOnibus.length &&
           postsOnibus.map((item, index) => {
             return (
-                <option key={index} value={item.id}>{item.codigo} | {item.nome}</option>
+                <option 
+                key={index} value={item.id}>{item.codigo} | {item.nome}</option>
             );
           })}
           </select>
           </> : 
           
           <> <h2 className="title">Lotação</h2>
-          <select name="">
+          <select value={optionsState} onChange={(e) => setOptionsState(console.log(e.target.value))}>
           {postsLotacao &&
           postsLotacao.length &&
           postsLotacao.map((item, index) => {
             return (
-                <option key={index} value={item.id}>{item.codigo} | {item.nome}</option>
+                <option 
+                key={index} value={item.id}>{item.codigo} | {item.nome}</option>
             );
           })}
           </select>
