@@ -60,7 +60,9 @@ function ListOfBus() {
           <option>Lotação</option>
         </select>
         <div>
-          {isBus === true ? <> <h2 className="title">Ônibus</h2>
+          {isBus === true ? 
+          <> 
+          <h2 className="title">Ônibus</h2>
           <select value={optionsState} onChange={(e) => setOptionsState(console.log(e.target.value))}>
           {postsOnibus &&
           postsOnibus.length &&
@@ -71,9 +73,10 @@ function ListOfBus() {
             );
           })}
           </select>
-          </> : 
-          
-          <> <h2 className="title">Lotação</h2>
+          </> 
+          : 
+          <> 
+          <h2 className="title">Lotação</h2>
           <select value={optionsState} onChange={(e) => setOptionsState(console.log(e.target.value))}>
           {postsLotacao &&
           postsLotacao.length &&
