@@ -1,8 +1,7 @@
 import "./ListOfBus.css";
-import axios from "axios";
 import { getCoords, getOnibus } from '../../service/tranporte.service'
 
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useEffect} from "react";
 
 function ListOfBus() {
 
