@@ -19,7 +19,7 @@ const MapPage = () => {
         <GoogleMap
           mapContainerStyle={{ width: "50%", height: "100%" }}
           center={position}
-          zoom={12}
+          zoom={13}
         >
           <Marker position={position} />
         </GoogleMap>
