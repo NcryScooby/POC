@@ -54,7 +54,7 @@ function ListOfBus() {
   return (
     <div className="custom-select">
       <div>
-        <h2>Selecione</h2>
+        <h2 className="title-sel">Selecione</h2>
         <select onChange={() => altera()}>
           <option>Ônibus</option>
           <option>Lotação</option>

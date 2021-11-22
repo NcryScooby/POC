@@ -1,3 +1,4 @@
+import './index.css'
 import React from "react";
 import MapPage from "../../googleMaps/MapPage";
 import ListOfBus from "../../listOfBus/ListOfBus";
