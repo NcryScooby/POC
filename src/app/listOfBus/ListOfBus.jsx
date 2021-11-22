@@ -63,7 +63,9 @@ function ListOfBus() {
           {isBus === true ? 
           <> 
           <h2 className="title">Ônibus</h2>
-          <select value={optionsState} onChange={(e) => setOptionsState(console.log(e.target.value))}>
+          <select 
+          value={optionsState} 
+          onChange={(e) => setOptionsState(console.log(e.target.value))}>
           {postsOnibus &&
           postsOnibus.length &&
           postsOnibus.map((item, index) => {
@@ -77,7 +79,9 @@ function ListOfBus() {
           : 
           <> 
           <h2 className="title">Lotação</h2>
-          <select value={optionsState} onChange={(e) => setOptionsState(console.log(e.target.value))}>
+          <select 
+          value={optionsState} 
+          onChange={(e) => setOptionsState(console.log(e.target.value))}>
           {postsLotacao &&
           postsLotacao.length &&
           postsLotacao.map((item, index) => {
