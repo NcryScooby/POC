@@ -54,7 +54,7 @@ function ListOfBus() {
   return (
     <div className="custom-select">
       <div>
-        <h2 className="title-sel">Selecione</h2>
+        <h2 className="title-sel">Selecione Meio de Transporte</h2>
         <select onChange={() => altera()}>
           <option>Ônibus</option>
           <option>Lotação</option>
@@ -62,7 +62,7 @@ function ListOfBus() {
         <div>
           {isBus === true ? 
           <> 
-          <h2 className="title">Ônibus</h2>
+          <h2 className="title">Selecione a Rota do Ônibus</h2>
           <select 
           value={optionsState} 
           onChange={(e) => setOptionsState(console.log(e.target.value))}>
@@ -78,7 +78,7 @@ function ListOfBus() {
           </> 
           : 
           <> 
-          <h2 className="title">Lotação</h2>
+          <h2 className="title">Selecione a Rota da Lotação</h2>
           <select 
           value={optionsState} 
           onChange={(e) => setOptionsState(console.log(e.target.value))}>
