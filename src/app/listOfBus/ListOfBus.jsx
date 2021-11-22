@@ -77,7 +77,7 @@ function ListOfBus() {
           postsLotacao.length &&
           postsLotacao.map((item, index) => {
             return (
-                <option onClick={} key={index} value={item.id}>{item.codigo} | {item.nome}</option>
+                <option key={index} value={item.id}>{item.codigo} | {item.nome}</option>
             );
           })}
           </select>
