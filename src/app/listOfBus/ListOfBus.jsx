@@ -3,7 +3,7 @@ import { getCoords, getOnibus } from '../../service/tranporte.service'
 
 import React, {useState, useEffect} from "react";
 
-function ListOfBus() {
+function ListOfBus({listar, ...props}) {
 
 
   const [postsOnibus, setPostsOnibus] = useState([]);
@@ -40,10 +40,14 @@ function ListOfBus() {
   async function functionGetCoords(bus) {
     const coords = await getCoords(bus);
     setListaCoordsState([coords.data]);
-    console.log(coords.data);
-    return getCoords(bus);
+    // setMap(coords.data)
+    // console
+    listar(coords.data);
+    //console.log(listar)
+    // props.children.setMap(coords.data)
+    // return getCoords(bus);
   }
-
+  
   function altera() {
 
     if (isBus === true) {
@@ -68,8 +72,8 @@ function ListOfBus() {
           <select 
           value={optionsState}
           onChange={(e) => {
-          setOptionsState((e.target.value))
-          return functionGetCoords(e.target.value);
+            setOptionsState((e.target.value));
+            return functionGetCoords(e.target.value);
           }}>
           {postsOnibus &&
           postsOnibus.length &&

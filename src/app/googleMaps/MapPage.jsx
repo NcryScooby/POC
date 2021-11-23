@@ -1,25 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker, Polyline } from "@react-google-maps/api";
 import "./MapPage.css";
 
-const MapPage = () => {
+const MapPage = ({coords, ...props}) => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyBhJtiRsgFDP-q2rFn4bf_R8-fUvvaekq4",
   });
 
+  const [mapCoords, setMapCoords] = useState([]);
+
   const onLoad = polyline => {
     console.log('polyline: ', polyline)
   };
-  
-  const path = [
-    // Aqui vai as coords.
-  ];
 
+  useEffect (() => {
+    setMapCoords(coords);
+    console.log('Filho: ', coords)
+  }, [coords])
+  
+
+  
   const options = {
     strokeColor: '#FF0000',
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
+    strokeOpacity: 1,
+    strokeWeight: 3,
     fillColor: '#FF0000',
     fillOpacity: 0.35,
     clickable: false,
@@ -27,7 +32,7 @@ const MapPage = () => {
     editable: false,
     visible: true,
     radius: 30000,
-    paths: [path],
+    paths: mapCoords,
     zIndex: 1
   };
 
@@ -38,7 +43,7 @@ const MapPage = () => {
 
   const mapContainerStyle = {
     height: "100%",
-    width: "50%"
+    width: "80%"
   };
 
   return (
@@ -52,7 +57,7 @@ const MapPage = () => {
         >
           <Polyline
           onLoad={onLoad}
-          path={path}
+          paths={mapCoords}
           options={options}
     />
           <Marker position={position} />
