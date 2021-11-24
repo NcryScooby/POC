@@ -8,7 +8,7 @@ const MapPage = ({coords, ...props}) => {
     googleMapsApiKey: "AIzaSyBhJtiRsgFDP-q2rFn4bf_R8-fUvvaekq4",
   });
 
-  const [mapCoords, setMapCoords] = useState([]);
+  let [mapCoords, setMapCoords] = useState([]);
 
   const onLoad = polyline => {
     console.log('polyline: ', polyline)
@@ -20,6 +20,7 @@ const MapPage = ({coords, ...props}) => {
   }, [coords]);
 
   useEffect(() => {
+    mapCoords = [];
     for (let coord in coords) {
         if (coords[coord].lat?.length > 0 && coords[coord].lng?.length > 0) {
           mapCoords.push({ ...coords[coord] });
