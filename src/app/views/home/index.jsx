@@ -16,7 +16,6 @@ function Home(props) {
     <div className="home">
       <h1>POC React Estágio Dimed</h1>
       <ListOfBus listar={getDados} /> 
-      {/* props={setMap} */}
       <MapPage coords={map}/>
     </div>
   );

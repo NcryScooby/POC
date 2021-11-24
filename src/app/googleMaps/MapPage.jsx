@@ -30,9 +30,9 @@ const MapPage = ({coords, ...props}) => {
 }, [coords]);
 
   const options = {
-    strokeColor: '#3f3fb8',
+    strokeColor: '#ff0000',
     strokeWeight: 4,
-    fillColor: '#3f3fb8',
+    fillColor: '#ff0000',
     clickable: true,
     draggable: false,
     editable: false,
@@ -57,7 +57,7 @@ const MapPage = ({coords, ...props}) => {
           id="map"
           mapContainerStyle={ mapContainerStyle }
           center={position}
-          zoom={13}
+          zoom={12}
         >
           {mapCoords?.map((marker, index) => {
                 if (index === 0 || index === mapCoords.length - 1) {
