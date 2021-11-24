@@ -19,27 +19,27 @@ const MapPage = ({coords, ...props}) => {
     console.log('Filho: ', [coords]);
   }, [coords]);
 
-  const path = [
-    {lat: -30.00800957831400000, lng: -51.20927110780100000},
-    {lat: -30.00393057831400000, lng: -49.30886410780100000},
-  ];
+  useEffect(() => {
+    for (let coord in coords) {
+        if (coords[coord].lat?.length > 0 && coords[coord].lng?.length > 0) {
+          mapCoords.push({ ...coords[coord] });
+        }
+    }
+    setMapCoords(mapCoords);
+}, [coords]);
 
   const options = {
-    strokeColor: '#FF0000',
-    strokeOpacity: 1,
-    strokeWeight: 3,
-    fillColor: '#FF0000',
-    fillOpacity: 0.35,
-    clickable: false,
+    strokeColor: '#3f3fb8',
+    strokeWeight: 4,
+    fillColor: '#3f3fb8',
+    clickable: true,
     draggable: false,
     editable: false,
     visible: true,
-    radius: 30000,
-    paths: [path],
-    zIndex: 1
-  };
+    radius: 100,
+}
 
-  const position = {
+  let position = {
     lat: -30.036983,
     lng: -51.208895,
   };
@@ -58,12 +58,22 @@ const MapPage = ({coords, ...props}) => {
           center={position}
           zoom={13}
         >
-          <Polyline
-          onLoad={onLoad}
-          path={path}
-          options={options}
-    />
-          <Marker position={position} />
+          {mapCoords?.map((marker, index) => {
+                if (index === 0 || index === mapCoords.length - 1) {
+                    if (index === -1) {
+                        return <Marker key={"marker" + index} position={{ lat: Number(marker.lat), lng: Number(marker.lng) }} options={{ visible: true }} />
+                    } else {
+                        const centerOfLine = (index / 2);
+                        const { lat, lng } = mapCoords[parseInt(centerOfLine.toString())];
+                        position = { lat:(lat), lng:(lng) };
+
+                        return <Marker key={"marker" + index} position={{ lat: Number(marker.lat), lng: Number(marker.lng) }} options={{ visible: true }} />
+                    }
+                } else {
+                    return <Marker key={"marker" + index} position={{ lat: Number(marker.lat), lng: Number(marker.lng) }} options={{ visible: false }} />
+                }
+            })}
+            <Polyline key="polyline" path={mapCoords.map((x) => ({ lat: Number(x.lat), lng: Number(x.lng) }))} options={options} />
         </GoogleMap>
       ) : (
         <></>
