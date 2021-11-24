@@ -57,7 +57,7 @@ const MapPage = ({coords, ...props}) => {
           id="map"
           mapContainerStyle={ mapContainerStyle }
           center={position}
-          zoom={12}
+          zoom={11.5}
         >
           {mapCoords?.map((marker, index) => {
                 if (index === 0 || index === mapCoords.length - 1) {
