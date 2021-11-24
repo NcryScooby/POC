@@ -10,13 +10,13 @@ const MapPage = ({coords, ...props}) => {
 
   let [mapCoords, setMapCoords] = useState([]);
 
-  const onLoad = polyline => {
-    console.log('polyline: ', polyline)
-  };
+  // const onLoad = polyline => {
+  //   console.log('polyline: ', polyline)
+  // };
 
   useEffect (() => {
     setMapCoords(coords);
-    console.log('Filho: ', [coords]);
+    // console.log('Filho: ', [coords]);
   }, [coords]);
 
   useEffect(() => {

@@ -9,7 +9,7 @@ function ListOfBus({listar, ...props}) {
   const [postsOnibus, setPostsOnibus] = useState([]);
   const [postsLotacao, setPostsLotacao] = useState([]);
   const [optionsState, setOptionsState] = useState({});
-  const [listaCoordsState, setListaCoordsState] = useState([]);
+  const [/*listaCoordsState*/, setListaCoordsState] = useState([]);
   const [isBus, setIsBus] = useState(true);
 
   useEffect(() => {
