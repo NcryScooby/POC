@@ -40,7 +40,7 @@ const MapPage = ({coords, ...props}) => {
     radius: 100,
 }
 
-  let position = {
+  let center = {
     lat: -30.036983,
     lng: -51.208895,
   };
@@ -56,7 +56,7 @@ const MapPage = ({coords, ...props}) => {
         <GoogleMap
           id="map"
           mapContainerStyle={ mapContainerStyle }
-          center={position}
+          center={center}
           zoom={11.5}
         >
           {mapCoords?.map((marker, index) => {
@@ -66,7 +66,7 @@ const MapPage = ({coords, ...props}) => {
                     } else {
                         const centerOfLine = (index / 2);
                         const { lat, lng } = mapCoords[parseInt(centerOfLine.toString())];
-                        position = { lat:(lat), lng:(lng) };
+                        center = { lat: Number(lat), lng: Number(lng) };
 
                         return <Marker key={"marker" + index} position={{ lat: Number(marker.lat), lng: Number(marker.lng) }} options={{ visible: true }} />
                     }
