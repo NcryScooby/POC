@@ -1,7 +1,14 @@
 import "./ListOfBus.css";
 import { getCoords, getOnibus } from '../../service/tranporte.service'
 
+import styled from "styled-components";
+
 import React, {useState, useEffect} from "react";
+
+const Title = styled.h2`
+  color: white;
+  font-size: 1.2rem;
+`
 
 function ListOfBus({listar, ...props}) {
 
@@ -60,7 +67,7 @@ function ListOfBus({listar, ...props}) {
   return (
     <div className="custom-select">
       <div>
-        <h2 className="title-sel">Selecione Meio de Transporte</h2>
+        <Title className="title-sel">Selecione Meio de Transporte</Title>
         <select onChange={() => altera()}>
           <option>Ônibus</option>
           <option>Lotação</option>
@@ -68,7 +75,7 @@ function ListOfBus({listar, ...props}) {
         <div>
           {isBus === true ? 
           <> 
-          <h2 className="title">Selecione a Rota do Ônibus</h2>
+          <Title className="title">Selecione a Rota do Ônibus</Title>
           <select 
           value={optionsState}
           onChange={(e) => {
@@ -87,7 +94,7 @@ function ListOfBus({listar, ...props}) {
           </> 
           : 
           <> 
-          <h2 className="title">Selecione a Rota da Lotação</h2>
+          <Title className="title">Selecione a Rota da Lotação</Title>
           <select 
           value={optionsState} 
           onChange={(e) => {
