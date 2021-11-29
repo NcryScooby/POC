@@ -87,7 +87,7 @@ function ListOfBus({listar, ...props}) {
           postsOnibus.map((item, index) => {
             return (
                 <option 
-                key={index} value={item.id}>{item.codigo} | {item.nome}</option>
+                key={index} value={item.id}>{item.nome}</option>
             );
           })}
           </select>
@@ -106,7 +106,7 @@ function ListOfBus({listar, ...props}) {
           postsLotacao.map((item, index) => {
             return (
                 <option 
-                key={index} value={item.id}>{item.codigo} | {item.nome}</option>
+                key={index} value={item.id}>{item.nome}</option>
             );
           })}
           </select>

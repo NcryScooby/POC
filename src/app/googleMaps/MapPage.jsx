@@ -20,13 +20,13 @@ const MapPage = ({coords, ...props}) => {
   }, [coords]);
 
   useEffect(() => {
-    mapCoords = [];
+    let aux = [];
     for (let coord in coords) {
         if (coords[coord].lat?.length > 0 && coords[coord].lng?.length > 0) {
-          mapCoords.push({ ...coords[coord] });
+          aux.push({ ...coords[coord] });
         }
     }
-    setMapCoords(mapCoords);
+    setMapCoords(aux);
 }, [coords]);
 
   const options = {
