@@ -2,21 +2,25 @@ import React, { useEffect, useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker, Polyline } from "@react-google-maps/api";
 import "./MapPage.css";
 
+let center = {
+  lat: -30.036983,
+  lng: -51.208895
+};
+
+const mapContainerStyle = {
+    height: "100%",
+    width: "80%"
+  };
+
 const MapPage = ({coords, ...props}) => {
+  const [mapCoords, setMapCoords] = useState([]);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyBhJtiRsgFDP-q2rFn4bf_R8-fUvvaekq4",
   });
 
-  let [mapCoords, setMapCoords] = useState([]);
-
-  // const onLoad = polyline => {
-  //   console.log('polyline: ', polyline)
-  // };
-
   useEffect (() => {
     setMapCoords(coords);
-    // console.log('Filho: ', [coords]);
   }, [coords]);
 
   useEffect(() => {
@@ -40,16 +44,6 @@ const MapPage = ({coords, ...props}) => {
     radius: 100,
 }
 
-  let center = {
-    lat: -30.036983,
-    lng: -51.208895,
-  };
-
-  const mapContainerStyle = {
-    height: "100%",
-    width: "80%"
-  };
-
   return (
     <div className="map">
       {isLoaded ? (
@@ -57,17 +51,13 @@ const MapPage = ({coords, ...props}) => {
           id="map"
           mapContainerStyle={ mapContainerStyle }
           center={center}
-          zoom={11.5}
+          zoom={11}
         >
           {mapCoords?.map((marker, index) => {
                 if (index === 0 || index === mapCoords.length - 1) {
                     if (index === -1) {
                         return <Marker key={"marker" + index} position={{ lat: Number(marker.lat), lng: Number(marker.lng) }} options={{ visible: true }} />
                     } else {
-                        const centerOfLine = (index / 2);
-                        const { lat, lng } = mapCoords[parseInt(centerOfLine.toString())];
-                        center = { lat: Number(lat), lng: Number(lng) };
-
                         return <Marker key={"marker" + index} position={{ lat: Number(marker.lat), lng: Number(marker.lng) }} options={{ visible: true }} />
                     }
                 } else {

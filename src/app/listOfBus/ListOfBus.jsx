@@ -47,12 +47,7 @@ function ListOfBus({listar, ...props}) {
   async function functionGetCoords(bus) {
     const coords = await getCoords(bus);
     setListaCoordsState([coords.data]);
-    // setMap(coords.data)
-    // console
     listar(coords.data);
-    //console.log(listar)
-    // props.children.setMap(coords.data)
-    // return getCoords(bus);
   }
   
   function altera() {

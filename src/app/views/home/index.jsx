@@ -1,4 +1,3 @@
-import './index.css'
 import React, {useState} from "react";
 import MapPage from "../../googleMaps/MapPage";
 import ListOfBus from "../../listOfBus/ListOfBus";
