@@ -1,7 +1,7 @@
 import { getCoords, getOnibus } from '../../service/tranporte.service'
 import React, {useState, useEffect} from "react";
 
-import { Title, Select } from './style'
+import { SubTitle, Select } from '../ui/style'
 
 
 
@@ -57,7 +57,7 @@ function ListOfBus({listar, ...props}) {
   return (
     <Select>
       <div>
-        <Title>Selecione Meio de Transporte</Title>
+        <SubTitle>Selecione Meio de Transporte</SubTitle>
         <select onChange={() => altera()}>
           <option>Ônibus</option>
           <option>Lotação</option>
@@ -65,7 +65,7 @@ function ListOfBus({listar, ...props}) {
         <div>
           {isBus === true ?
           <> 
-          <Title>Selecione a Rota do Ônibus</Title>
+          <SubTitle>Selecione a Rota do Ônibus</SubTitle>
           <select 
           value={optionsState}
           onChange={(e) => {
@@ -84,7 +84,7 @@ function ListOfBus({listar, ...props}) {
           </> 
           : 
           <> 
-          <Title>Selecione a Rota da Lotação</Title>
+          <SubTitle>Selecione a Rota da Lotação</SubTitle>
           <select 
           value={optionsState} 
           onChange={(e) => {

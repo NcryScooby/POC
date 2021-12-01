@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import MapPage from "../../googleMaps/MapPage";
 import ListOfBus from "../../listOfBus/ListOfBus";
 
-import { Title } from './style'
+import { Title } from '../../ui/style'
 function Home(props) {
 
   const [map, setMap] = useState([]);

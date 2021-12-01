@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker, Polyline } from "@react-google-maps/api";
-import { Mapa } from './styled'
-
-let center = {
-  lat: -30.036983,
-  lng: -51.208895
-};
+import { Mapa } from '../ui/style'
 
 const mapContainerStyle = {
     height: "100%",
@@ -13,15 +8,15 @@ const mapContainerStyle = {
   };
 
 const MapPage = ({coords, ...props}) => {
+  const [center, setCenter] = useState({
+    lat: -30.036983,
+    lng: -51.208895
+  })
   const [mapCoords, setMapCoords] = useState([]);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyBhJtiRsgFDP-q2rFn4bf_R8-fUvvaekq4",
   });
-
-  useEffect (() => {
-    setMapCoords(coords);
-  }, [coords]);
 
   useEffect(() => {
     let aux = [];
@@ -32,6 +27,14 @@ const MapPage = ({coords, ...props}) => {
     }
     setMapCoords(aux);
 }, [coords]);
+
+useEffect(() => {
+  if (mapCoords.length > 0) {
+    const centerOfLine = (mapCoords.length / 2);
+    const { lat, lng } = mapCoords[parseInt(centerOfLine.toString())];
+    setCenter({ lat: Number(lat), lng: Number(lng) });
+  }
+}, [mapCoords])
 
   const options = {
     strokeColor: '#ff0000',
