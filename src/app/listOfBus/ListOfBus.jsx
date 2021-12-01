@@ -58,7 +58,7 @@ function ListOfBus({listar, ...props}) {
     <Select>
       <div>
         <SubTitle>Selecione Meio de Transporte</SubTitle>
-        <select onChange={() => altera()}>
+        <select data-cy="opcoes" onChange={() => altera()}>
           <option>Ônibus</option>
           <option>Lotação</option>
         </select>
@@ -66,7 +66,7 @@ function ListOfBus({listar, ...props}) {
           {isBus === true ?
           <> 
           <SubTitle>Selecione a Rota do Ônibus</SubTitle>
-          <select 
+          <select
           value={optionsState}
           onChange={(e) => {
             setOptionsState((e.target.value));
