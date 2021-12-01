@@ -54,7 +54,7 @@ useEffect(() => {
           id="map"
           mapContainerStyle={ mapContainerStyle }
           center={center}
-          zoom={11}
+          zoom={11.5}
         >
           {mapCoords?.map((marker, index) => {
                 if (index === 0 || index === mapCoords.length - 1) {
