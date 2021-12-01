@@ -1,16 +1,9 @@
-import "./ListOfBus.css";
 import { getCoords, getOnibus } from '../../service/tranporte.service'
-
-import styled from "styled-components";
-
 import React, {useState, useEffect} from "react";
 
-const Title = styled.h2`
-  color: white;
-  font-weight: 400;
-  font-size: 1rem;
-  font-family: "Roboto", sans-serif;
-`
+import { Title, Select } from './style'
+
+
 
 function ListOfBus({listar, ...props}) {
 
@@ -18,7 +11,7 @@ function ListOfBus({listar, ...props}) {
   const [postsOnibus, setPostsOnibus] = useState([]);
   const [postsLotacao, setPostsLotacao] = useState([]);
   const [optionsState, setOptionsState] = useState({});
-  const [/*listaCoordsState*/, setListaCoordsState] = useState([]);
+  const [ , setListaCoordsState] = useState([]);
   const [isBus, setIsBus] = useState(true);
 
   useEffect(() => {
@@ -62,17 +55,17 @@ function ListOfBus({listar, ...props}) {
   }
 
   return (
-    <div className="custom-select">
+    <Select>
       <div>
-        <Title className="title-sel">Selecione Meio de Transporte</Title>
+        <Title>Selecione Meio de Transporte</Title>
         <select onChange={() => altera()}>
           <option>Ônibus</option>
           <option>Lotação</option>
         </select>
         <div>
-          {isBus === true ? 
+          {isBus === true ?
           <> 
-          <Title className="title">Selecione a Rota do Ônibus</Title>
+          <Title>Selecione a Rota do Ônibus</Title>
           <select 
           value={optionsState}
           onChange={(e) => {
@@ -91,7 +84,7 @@ function ListOfBus({listar, ...props}) {
           </> 
           : 
           <> 
-          <Title className="title">Selecione a Rota da Lotação</Title>
+          <Title>Selecione a Rota da Lotação</Title>
           <select 
           value={optionsState} 
           onChange={(e) => {
@@ -110,7 +103,7 @@ function ListOfBus({listar, ...props}) {
           </>}
         </div>
       </div>
-    </div>
+    </Select>
   );
 }
 
