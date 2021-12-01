@@ -1,48 +1,53 @@
 .lis {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .custom-select {
-    padding-bottom: 30px;
+  padding-bottom: 30px;
 }
 
-.custom-select select{
-    text-align: center;
-    width: 40%;
-    height: 40px;
-    color: black;
-    background-color: rgb(223, 223, 223);
-    font-size: 20px;
-    outline: none;
-    border-radius: 10px;
-    cursor: pointer;
+.custom-select select {
+  text-align: center;
+  width: 22%;
+  height: 35px;
+  color: black;
+  background-color: rgb(223, 223, 223);
+  font-size: 18px;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 601px) and (max-width: 766px) {
-    .custom-select select {
-        width: 80%;
-    }
-  } 
+  .custom-select select {
+    width: 80%;
+  }
+}
 
 @media only screen and (min-width: 100px) and (max-width: 600px) {
-    .custom-select select {
-        width: 80%;
-        font-size: 15px;
-        height: 35px;
-    }
-
-    .title{
-        font-size: 15px;
-    }
-    .title-sel{
-        font-size: 15px;
-    }
+  .custom-select select {
+    width: 95%;
+    font-size: 15px;
+    height: 35px;
   }
 
+  .title {
+    font-size: 15px;
+  }
+  .title-sel {
+    font-size: 15px;
+  }
+}
 
-@media only screen and (min-width: 767px) and (max-width: 1024px){
-    .custom-select select {
-        width: 80%;
-    }
-  } 
+@media only screen and (min-width: 1024px) and (max-width: 1365px) {
+  .custom-select select {
+    width: 65%;
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1023px) {
+  .custom-select select {
+    width: 80%;
+  }
+}

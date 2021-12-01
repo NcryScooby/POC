@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker, Polyline } from "@react-google-maps/api";
-import "./MapPage.css";
+import { Mapa } from './styled'
 
 let center = {
   lat: -30.036983,
@@ -9,7 +9,7 @@ let center = {
 
 const mapContainerStyle = {
     height: "100%",
-    width: "80%"
+    width: "97%"
   };
 
 const MapPage = ({coords, ...props}) => {
@@ -45,7 +45,7 @@ const MapPage = ({coords, ...props}) => {
 }
 
   return (
-    <div className="map">
+    <Mapa>
       {isLoaded ? (
         <GoogleMap
           id="map"
@@ -69,7 +69,7 @@ const MapPage = ({coords, ...props}) => {
       ) : (
         <></>
       )}
-    </div>
+    </Mapa>
   );
 };
 

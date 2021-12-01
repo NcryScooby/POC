@@ -7,7 +7,9 @@ import React, {useState, useEffect} from "react";
 
 const Title = styled.h2`
   color: white;
-  font-size: 1.2rem;
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
 `
 
 function ListOfBus({listar, ...props}) {
