@@ -15,7 +15,7 @@ function Home(props) {
   return (
     <div className="home">
       <Title>POC React Estágio Dimed</Title>
-      <ListOfBus listar={getDados} /> 
+      <ListOfBus listar={getDados} />
       <MapPage coords={map}/>
     </div>
   );

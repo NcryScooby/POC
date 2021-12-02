@@ -1,21 +1,17 @@
-import { getCoords, getOnibus } from '../../service/tranporte.service'
-import React, {useState, useEffect} from "react";
+import { getCoords, getOnibus } from "../../service/tranporte.service";
+import React, { useState, useEffect } from "react";
 
-import { SubTitle, Select } from '../ui/style'
+import { SubTitle, Select } from "../ui/style";
 
-
-
-function ListOfBus({listar, ...props}) {
-
-
+function ListOfBus({ listar, ...props }) {
   const [postsOnibus, setPostsOnibus] = useState([]);
   const [postsLotacao, setPostsLotacao] = useState([]);
   const [optionsState, setOptionsState] = useState({});
-  const [ , setListaCoordsState] = useState([]);
+  const [, setListaCoordsState] = useState([]);
   const [isBus, setIsBus] = useState(true);
 
   useEffect(() => {
-    getOnibus('o')
+    getOnibus("o")
       .then((response) => {
         const onibus = response.data;
 
@@ -26,9 +22,8 @@ function ListOfBus({listar, ...props}) {
       });
   }, []);
 
-
   useEffect(() => {
-    getOnibus('l')
+    getOnibus("l")
       .then((response) => {
         const lotacao = response.data;
 
@@ -44,9 +39,8 @@ function ListOfBus({listar, ...props}) {
     setListaCoordsState([coords.data]);
     listar(coords.data);
   }
-  
-  function altera() {
 
+  function altera() {
     if (isBus === true) {
       setIsBus(false);
     } else {
@@ -63,44 +57,49 @@ function ListOfBus({listar, ...props}) {
           <option>Lotação</option>
         </select>
         <div>
-          {isBus === true ?
-          <> 
-          <SubTitle>Selecione a Rota do Ônibus</SubTitle>
-          <select
-          value={optionsState}
-          onChange={(e) => {
-            setOptionsState((e.target.value));
-            return functionGetCoords(e.target.value);
-          }}>
-          {postsOnibus &&
-          postsOnibus.length &&
-          postsOnibus.map((item, index) => {
-            return (
-                <option 
-                key={index} value={item.id}>{item.nome}</option>
-            );
-          })}
-          </select>
-          </> 
-          : 
-          <> 
-          <SubTitle>Selecione a Rota da Lotação</SubTitle>
-          <select 
-          value={optionsState} 
-          onChange={(e) => {
-          setOptionsState((e.target.value))
-          return functionGetCoords(e.target.value);
-          }}>
-          {postsLotacao &&
-          postsLotacao.length &&
-          postsLotacao.map((item, index) => {
-            return (
-                <option 
-                key={index} value={item.id}>{item.nome}</option>
-            );
-          })}
-          </select>
-          </>}
+          {isBus === true ? (
+            <>
+              <SubTitle>Selecione a Rota do Ônibus</SubTitle>
+              <select
+                value={optionsState}
+                onChange={(e) => {
+                  setOptionsState(e.target.value);
+                  return functionGetCoords(e.target.value);
+                }}
+              >
+                {postsOnibus &&
+                  postsOnibus.length &&
+                  postsOnibus.map((item, index) => {
+                    return (
+                      <option key={index} value={item.id}>
+                        {item.nome}
+                      </option>
+                    );
+                  })}
+              </select>
+            </>
+          ) : (
+            <>
+              <SubTitle>Selecione a Rota da Lotação</SubTitle>
+              <select
+                value={optionsState}
+                onChange={(e) => {
+                  setOptionsState(e.target.value);
+                  return functionGetCoords(e.target.value);
+                }}
+              >
+                {postsLotacao &&
+                  postsLotacao.length &&
+                  postsLotacao.map((item, index) => {
+                    return (
+                      <option key={index} value={item.id}>
+                        {item.nome}
+                      </option>
+                    );
+                  })}
+              </select>
+            </>
+          )}
         </div>
       </div>
     </Select>
