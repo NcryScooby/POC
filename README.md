@@ -8,13 +8,15 @@
 
 3. Install NodeJS
 
-4. Clone project from github
+4. Open the Terminal
+
+5. Clone project from github
 ````
 git clone https://github.com/NcryScooby/POC.git
 ````
-5. cd into project folder
+6. cd into project folder
 
-6. Install local project package
+7. Install local project package
 ````
 npm install
 ````
