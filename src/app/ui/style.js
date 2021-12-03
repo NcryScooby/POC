@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const SubTitle = styled.h2`
   color: #ccc;
-  font-weight: 600;
-  font-size: 0.8rem;
+  font-weight: 400;
+  font-size: 0.9rem;
   font-family: 'Montserrat', sans-serif;
 `;
 
@@ -16,7 +16,7 @@ export const Select = styled.div`
     height: 35px;
     color: black;
     background-color: rgb(223, 223, 223);
-    font-size: 14px;
+    font-size: 15px;
     outline: none;
     border-radius: 10px;
     cursor: pointer;
