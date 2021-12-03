@@ -99,7 +99,7 @@ export const Title = styled.h1`
 
   /* Ipad pro*/
   @media (min-height: 1365px) and (max-height: 1367px) {
-    font-size: 2.67em;
+    font-size: 2.66em;
   }
 
   /* Surface Duo */
