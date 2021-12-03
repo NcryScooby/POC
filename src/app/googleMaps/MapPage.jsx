@@ -38,9 +38,9 @@ useEffect(() => {
 }, [mapCoords])
 
 const options = {
-  strokeColor: '#ff0000',
+  strokeColor: '#fd5454',
   strokeWeight: 4,
-  fillColor: '#ff0000',
+  fillColor: '#fd5454',
   clickable: true,
   draggable: false,
   editable: false,
