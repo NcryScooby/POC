@@ -113,7 +113,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const Mapa = styled.div`
+export const Map = styled.div`
   height: 65vh;
   display: flex;
   justify-content: center;

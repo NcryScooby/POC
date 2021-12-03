@@ -1,22 +1,21 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import MapPage from "../../googleMaps/MapPage";
 import ListOfBus from "../../listOfBus/ListOfBus";
 
-import { Title } from '../../ui/style'
-function Home(props) {
+import { Title } from "../../ui/style";
 
+function Home() {
   const [map, setMap] = useState([]);
 
-  const getDados = (e) => {
+  const getData = (e) => {
     setMap(e);
-  }
-
+  };
 
   return (
-    <div className="home">
+    <div className="Home">
       <Title>POC React Estágio Dimed</Title>
-      <ListOfBus listar={getDados} />
-      <MapPage coords={map}/>
+      <ListOfBus list={getData} />
+      <MapPage coords={map} />
     </div>
   );
 }

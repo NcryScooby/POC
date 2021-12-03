@@ -1,21 +1,21 @@
-import { getCoords, getOnibus } from "../../service/tranporte.service";
+import { getCoords, getBus } from "../../service/tranporte.service";
 import React, { useState, useEffect } from "react";
 
 import { SubTitle, Select } from "../ui/style";
 
-function ListOfBus({ listar, ...props }) {
-  const [postsOnibus, setPostsOnibus] = useState([]);
-  const [postsLotacao, setPostsLotacao] = useState([]);
+function ListOfBus({ list }) {
+  const [postsBus, setPostsBus] = useState([]);
+  const [postsJitneyBus, setPostsJitneyBus] = useState([]);
   const [optionsState, setOptionsState] = useState({});
-  const [, setListaCoordsState] = useState([]);
+  const [, setListCoordsState] = useState([]);
   const [isBus, setIsBus] = useState(true);
 
   useEffect(() => {
-    getOnibus("o")
+    getBus("o")
       .then((response) => {
-        const onibus = response.data;
+        const bus = response.data;
 
-        setPostsOnibus(onibus);
+        setPostsBus(bus);
       })
       .catch(() => {
         console.log("Deu tudo Errado!");
@@ -23,11 +23,11 @@ function ListOfBus({ listar, ...props }) {
   }, []);
 
   useEffect(() => {
-    getOnibus("l")
+    getBus("l")
       .then((response) => {
-        const lotacao = response.data;
+        const jitneyBus = response.data;
 
-        setPostsLotacao(lotacao);
+        setPostsJitneyBus(jitneyBus);
       })
       .catch(() => {
         console.log("Deu tudo Errado!");
@@ -36,23 +36,17 @@ function ListOfBus({ listar, ...props }) {
 
   async function functionGetCoords(bus) {
     const coords = await getCoords(bus);
-    setListaCoordsState([coords.data]);
-    listar(coords.data);
+    setListCoordsState([coords.data]);
+    list(coords.data);
   }
 
-  function altera() {
-    if (isBus === true) {
-      setIsBus(false);
-    } else {
-      setIsBus(true);
-    }
-  }
+  const changeBus = () => (isBus === true ? setIsBus(false) : setIsBus(true));
 
   return (
     <Select>
       <div>
         <SubTitle>Selecione Meio de Transporte</SubTitle>
-        <select data-cy="opcoes" onChange={() => altera()}>
+        <select data-cy="options" onChange={() => changeBus()}>
           <option>Ônibus</option>
           <option>Lotação</option>
         </select>
@@ -67,9 +61,9 @@ function ListOfBus({ listar, ...props }) {
                   return functionGetCoords(e.target.value);
                 }}
               >
-                {postsOnibus &&
-                  postsOnibus.length &&
-                  postsOnibus.map((item, index) => {
+                {postsBus &&
+                  postsBus.length &&
+                  postsBus.map((item, index) => {
                     return (
                       <option key={index} value={item.id}>
                         {item.nome}
@@ -88,9 +82,9 @@ function ListOfBus({ listar, ...props }) {
                   return functionGetCoords(e.target.value);
                 }}
               >
-                {postsLotacao &&
-                  postsLotacao.length &&
-                  postsLotacao.map((item, index) => {
+                {postsJitneyBus &&
+                  postsJitneyBus.length &&
+                  postsJitneyBus.map((item, index) => {
                     return (
                       <option key={index} value={item.id}>
                         {item.nome}
