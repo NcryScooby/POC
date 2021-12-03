@@ -4,13 +4,15 @@
 
 ## Installation
 
-1. Download [Node](https://nodejs.org/pt-br/download/)
+1. Download [NodeJS](https://nodejs.org/pt-br/download/)
 
-2. Clone project from github
+3. Install NodeJS
+
+4. Clone project from github
 ````
 git clone https://github.com/NcryScooby/POC.git
 ````
-4. cd into project folder
+5. cd into project folder
 
 6. Install local project package
 ````
