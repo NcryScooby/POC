@@ -1,7 +1,6 @@
 # Line Map React Application
 
-![Screenshot](POCimg.png)
-  
+![Screenshot](img/POCimg.png)
 
 ## Installation
 
@@ -21,8 +20,3 @@ npm install
 ## Run Project
 
 Run `npm start` for a dev server. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
-
-
-
-
-
