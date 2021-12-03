@@ -1,9 +1,6 @@
 # Line Map React Application
 
-
-
-![Screenshot](https://imgur.com/a/egQE88i)
-
+![Screenshot](POCimg.png)
   
 
 ## Installation
