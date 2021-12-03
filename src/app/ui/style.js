@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SubTitle = styled.h2`
   color: #ccc;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-family: 'Montserrat', sans-serif;
 `;
 
@@ -16,7 +16,7 @@ export const Select = styled.div`
     height: 35px;
     color: black;
     background-color: rgb(223, 223, 223);
-    font-size: 18px;
+    font-size: 14px;
     outline: none;
     border-radius: 10px;
     cursor: pointer;
