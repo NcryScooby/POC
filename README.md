@@ -14,7 +14,7 @@
 ````
 git clone https://github.com/NcryScooby/POC.git
 ````
-4. cd into Project
+4. cd into folder project
 
 6. Install local project package
 ````
